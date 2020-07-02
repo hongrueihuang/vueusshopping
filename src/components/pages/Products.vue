@@ -34,6 +34,9 @@
         </tr>
       </tbody>
     </table>
+    <!-- pagination -->
+    <Pagination :page="pagination" @changePageNum="getData" />
+    <!-- pagination -->
     <!-- addProductModal -->
     <div
       class="modal fade"
@@ -216,6 +219,7 @@
   </div>
 </template>
 <script>
+import Pagination from '../Pagination';
 export default {
   data() {
     return {
@@ -225,18 +229,23 @@ export default {
       isLoading: false,
       status: {
         fileUploading: false
-      }
+      },
+      pagination: {}
     };
   },
+  components: {
+      Pagination
+  },
   methods: {
-    getData() {
+    getData(page = 1) {
       const vm = this;
-      const api = `${process.env.API_PATH}api/${process.env.CUSTOM_PATH}/admin/products`;
+      const api = `${process.env.API_PATH}api/${process.env.CUSTOM_PATH}/admin/products?page=${page}`;
       vm.isLoading = true;
       vm.$http.get(api).then(response => {
         console.log(response);
         vm.products = response.data.products;
         vm.isLoading = false;
+        vm.pagination = response.data.pagination;
       });
     },
     openModal(isNew, item) {
@@ -305,7 +314,7 @@ export default {
             vm.$set(vm.tempProduct, "imageUrl", response.data.imageUrl);
             vm.status.fileUploading = false;
           } else {
-            this.$bus.$emit('message:push', response.data.message, 'danger')
+            this.$bus.$emit("message:push", response.data.message, "danger");
             vm.status.fileUploading = false;
             console.log("上傳失敗");
           }
