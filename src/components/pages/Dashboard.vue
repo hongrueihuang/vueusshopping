@@ -20,6 +20,9 @@ import DashboardNav from "../DashboardNav";
 import DashboardSidebar from "../DashboardSidebar";
 import Alert from "../AlertMessage";
 export default {
+  data() {
+    return {}
+  },
   components: {
     DashboardNav,
     DashboardSidebar,

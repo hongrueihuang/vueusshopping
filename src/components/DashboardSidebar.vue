@@ -3,41 +3,24 @@
     <nav class="col-md-2 d-none d-md-block bg-light sidebar">
       <div class="sidebar-sticky">
         <ul class="nav flex-column">
-          <li class="nav-item">
-            <a class="nav-link active" href="#">
+          <li class="nav-item" @click="currentPage = 'Products'">
+            <router-link class="nav-link" :class="{'active' : currentPage === 'Products'}" to="products">
               <span data-feather="home"></span>
               產品列表
               <span class="sr-only">(current)</span>
-            </a>
+            </router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+          <li class="nav-item" @click="currentPage = 'Orders'">
+            <router-link class="nav-link" :class="{'active' : currentPage === 'Orders'}" to="orders">
               <span data-feather="file"></span>
               訂單管理
-            </a>
+            </router-link>
           </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">
+          <li class="nav-item" @click="currentPage = 'Coupons'">
+            <router-link class="nav-link" :class="{'active' : currentPage === 'Coupons'}" to="coupon" @click.prevent="currentPage = 'coupons'">
               <span data-feather="file"></span>
               優惠券
-            </a>
-          </li>
-        </ul>
-
-        <h6
-          class="sidebar-heading d-flex justify-content-between align-items-center px-3 mt-4 mb-1 text-muted"
-        >
-          <span>Saved reports</span>
-          <a class="d-flex align-items-center text-muted" href="#" aria-label="Add a new report">
-            <span data-feather="plus-circle"></span>
-          </a>
-        </h6>
-        <ul class="nav flex-column mb-2">
-          <li class="nav-item">
-            <a class="nav-link" href="#">
-              <span data-feather="file-text"></span>
-              Current month
-            </a>
+            </router-link>
           </li>
         </ul>
       </div>
@@ -45,7 +28,16 @@
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      currentPage: ''
+    }
+  },
+  created() {
+    this.currentPage = this.$route.name
+  }
+};
 </script>
 <style lang="scss" scoped>
 @import "../assets/helpers/dashboard";

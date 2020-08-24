@@ -1,7 +1,7 @@
 <template>
   <div>
       <router-link to="/" class="d-block text-left ml-3">回首頁</router-link>
-    <form class="form-signin" @submit.prevent="signin">
+    <form class="form-signin mt-5" @submit.prevent="signin">
       <h1 class="h3 mb-3 font-weight-normal">管理員登入</h1>
       <label for="inputEmail" class="sr-only">Email address</label>
       <input
@@ -28,7 +28,6 @@
         </label>
       </div>
       <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
-      <p class="mt-5 mb-3 text-muted">&copy; 2017-2020</p>
     </form>
   </div>
 </template>

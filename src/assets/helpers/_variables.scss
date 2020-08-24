@@ -79,7 +79,7 @@ $theme-colors: () !default;
 // stylelint-disable-next-line scss/dollar-variable-default
 $theme-colors: map-merge(
   (
-    "primary":    $primary,
+    "primary":    #004B97,//$primary,
     "pink":       $pink,
     "secondary":  $secondary,
     "success":    $success,
@@ -87,7 +87,13 @@ $theme-colors: map-merge(
     "warning":    $warning,
     "danger":     $danger,
     "light":      $light,
-    "dark":       $dark
+    "dark":       $dark,
+    "teal":       $teal,
+    "carousel":   #C4E1E1,
+    "footer":     #003060,
+    "transparent": transparent,
+    "user":      #984B4B
+
   ),
   $theme-colors
 );

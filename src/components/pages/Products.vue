@@ -244,8 +244,8 @@ export default {
       vm.$http.get(api).then(response => {
         console.log(response);
         vm.products = response.data.products;
-        vm.isLoading = false;
         vm.pagination = response.data.pagination;
+        vm.isLoading = false;
       });
     },
     openModal(isNew, item) {

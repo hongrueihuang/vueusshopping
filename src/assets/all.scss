@@ -6,4 +6,47 @@
 
 #app {
     text-align: left !important;
+    font-family: "Microsoft JhengHei",Arial, Helvetica, sans-serif;
 }
+
+.badge-rounded {
+    border-radius: 50%;
+}
+
+.swiper-container {
+    width: 600px;
+    height: 300px;
+}
+
+.bg-jumbotron {
+    background-color: #e9ecef;
+}
+
+.bg-cover {
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-position: center center;
+    height: 500px;
+}
+
+.card {
+    .card-image {
+        height: 200px;
+        background-repeat: no-repeat;
+        background-size: cover;
+    }
+    &.box-shadow {
+        box-shadow: 0 3px 3px #aaa;
+    }
+    &.box-shadow:hover {
+        box-shadow: 0 3px 7 px #aaa;
+    }
+    .btn {
+        border-width: 2px !important;
+    }
+}
+
+.sticky-top {
+    top: 120px !important;
+}
+
